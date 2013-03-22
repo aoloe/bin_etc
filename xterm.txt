@@ -1,0 +1,12 @@
+create a ~/.Xresources file with the following content:
+
+xterm*background: white
+xterm*foreground: black
+xterm*visualBell: True
+
+
+and reload the settings with
+
+$ xrdb -merge ~/.Xdefaults
+
+to apply the new settings without having to restart X11

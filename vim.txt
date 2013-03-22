@@ -1,0 +1,8 @@
+create a ~/.vimrc with the following content:
+
+:se sw=4
+:se ts=4
+:se expandtab
+:se hidden
+:se formatoptions=tcqro
+au BufRead,BufNewFile *.md		set filetype=markdown
