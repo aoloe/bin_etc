@@ -1,3 +1,7 @@
+$ sudo update-alternatives --config x-terminal-emulator
+and choose uxterm
+
+
 create a ~/.Xresources file with the following content:
 
 xterm*background: white

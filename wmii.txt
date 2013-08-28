@@ -1,0 +1,4 @@
+in /etc/X11/wmii/wmiirc
+
+export WMII_TERM="x-terminal-emulator"
+(and then correctly set the x-terminal-emulator)
