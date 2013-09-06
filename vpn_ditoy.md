@@ -1,0 +1,15 @@
+- on the mac:
+  - enable remote login for my user
+  - enable screen sharing for my user and configure (`computer settings`)
+- on the fritzbox
+  - generate an account on a windows computer (warning: the password and shared secret are stored in clear)
+  - upload the settings to the web interface
+- on debian
+  - install vpnc
+  - configure `/etc/vpnc/ditoy.conf` by following `default.conf` (group id is the email address, IKE is not needed)
+  - install `ssvnc` (`xtightvnc`does not support client side screen scaling)
+  - connect with `sudo vpnc ditoy.conf`
+  - ssh to `192.168.1.22`
+  - share the screen to `ssvncviewer -scale 0.60 192.168.1.22` (`vncviewer is an alias to the current vnc viewer)
+  - `vpnc-disconnect` stops the connection
+  
