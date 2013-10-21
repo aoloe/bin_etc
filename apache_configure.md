@@ -19,3 +19,8 @@ use a2ensite mamma to enable it
 use a2dissite mamma to desable it
 
  just have to make sure that apache answers to *:80
+
+
+add to `/etc/hosts/` a line:
+
+    127.0.0.1   ww.graphicslab.org
