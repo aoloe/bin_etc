@@ -27,14 +27,14 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " (pay attention: you could then have modified buffers in background)
 set hidden
 " autoload the settings in php.vim for all php files
-:autocmd FileType php source ~/docs/etc/vimrc/php.vim
+:autocmd FileType php source ~/docs/src/bin_etc/vimrc/php.vim
 " autoload the settings in latex.vim for all latex files
-:autocmd FileType tex source ~/docs/etc/vimrc/latex.vim
+:autocmd FileType tex source ~/docs/src/bin_etc/vimrc/vimrc/latex.vim
 " autoload the settings in latex.vim for all latex files
-:autocmd FileType cpp source ~/docs/etc/vimrc/cpp.vim
+:autocmd FileType cpp source ~/docs/src/bin_etc/vimrc/vimrc/cpp.vim
 ":autocmd BufNewFile,BufRead */.sylpheed/tmp/* source ~/docs/.vimrc/abFrancais.vim
 ":autocmd VimEnter */docs/uni/master/* source ~/docs/.vimrc/abFrancais.vim
-:autocmd VimEnter */.sylpheed/tmp/* source ~/docs/etc/vimrc/sylpheed.vim
+:autocmd VimEnter */.sylpheed/tmp/* source ~/docs/src/bin_etc/vimrc/vimrc/sylpheed.vim
 "close the buffer but keep the split layout
 com! Spbd :bn |bw#
 "com! Spbd enew|bw #
