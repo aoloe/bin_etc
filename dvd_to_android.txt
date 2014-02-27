@@ -1,0 +1,7 @@
+dvd to dvix (two passes):
+
+$ mencoder dvd://2  -dvd-device /dev/cdrom -ovc lavc -lavcopts vcodec=mpeg4:vpass=1 -oac mp3lame -lameopts vbr=3 -o /dev/null
+$ mencoder dvd://2 -dvd-device /dev/cdrom  -ovc lavc -lavcopts vcodec=mpeg4:mbd=2:trell:vpass=2 -oac mp3lame -lameopts vbr=3 -o output.avi
+
+dvix to aac (needs libaac)
+$ mencoder -o test.3gp -ovc lavc -oac lavc -lavcopts vcodec=mpeg4:acodec=aac:vbitrate=800:abitrate=192:vglobal=1:aglobal=1 -of lavf -lavfopts format=3gp -noskip -noautoexpand -vf dsize=854:480:0,scale=0:0,harddup -af channels=2,volnorm test.avi
