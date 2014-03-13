@@ -1,0 +1,1 @@
+sudo svnserve -d -r /mnt/backup/svn

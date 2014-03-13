@@ -1,0 +1,32 @@
+# server
+
+- install with all suggested dependencies
+  - edit /etc/mpd.conf
+    - music_directory
+    - bind_to_address to ifconfig's result
+    - activate port
+  - sudo service mpd restart
+  - install mpc, the mpd client
+  - run `mpc -h 192.168.1.56 -p 6600 update`
+  - run `mpc -h 192.168.1.56 -p 6600 ls` 
+  - for enabling the streaming, uncomment the audio_output config of type "httpd"
+
+# client
+
+- mpddroid
+  - setup wlan
+    - setup ip address of server
+
+- terminal client: ncmpc -h 192.168.1.56 -p 6600
+
+# further reading
+
+- [a rabsbperry pi as a mpd server](http://blog.scphillips.com/2013/01/using-a-raspberry-pi-with-android-phones-for-media-streaming/)
+
+
+
+
+if i want to export the sound from the main machine:
+- darkice + icecast for serving the sound
+- but how to receive it?
+- https://bbs.archlinux.org/viewtopic.php?id=136474
