@@ -6,3 +6,7 @@ create a ~/.vimrc with the following content:
 :se hidden
 :se formatoptions=tcqro
 au BufRead,BufNewFile *.md		set filetype=markdown
+
+or simply create a ~/.vimrc with the following content:
+
+:autocmd VimEnter * source ~/docs/src/bin_etc/vimrc/vimrc.vim
