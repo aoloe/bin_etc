@@ -23,3 +23,6 @@ sudo make install
 
 
 -DWANT_GUI_LANG="en_GB;de;fr;it;en" // to reduce the number of languages for the GUI
+
+
+ grep -rl 'lib/lib' resources/translations/  | xargs sed -i 's/lib\/lib\//lib\//g'

@@ -40,3 +40,5 @@ com! Spbd :bn |bw#
 "com! Spbd enew|bw #
 " create the file if it does not exist
 :map gf :e <cfile><CR>
+" dont highliht the matching braces
+:NoMatchParen
