@@ -4,15 +4,15 @@
 " accepte les trois encodages habituels
 set fileencodings=ucs-bom,utf-8,latin1
 " pour changer le nombre de caracteres dans l'auto indent
-:se sw=2
+:se sw=4
 " pour changer l'indentation du tabulateur
-:se ts=2
+:se ts=4
 " comment doit-il se comporter en fin de ligne?
 :se textwidth=0
 " pour ne pas avoir de tabs dans les autoindent
 :se expandtab
 " ajouté le r pour les marques de commentaire automatiques
-:se formatoptions=tcqlr
+:se formatoptions=tcqlro
 " pour colorier la syntaxe
 :sy on
 "au debut les search ne sont pas highlighted!
@@ -40,3 +40,5 @@ com! Spbd :bn |bw#
 "com! Spbd enew|bw #
 " create the file if it does not exist
 :map gf :e <cfile><CR>
+" for me .md is for markdown files
+au BufRead,BufNewFile *.md		set filetype=markdown
