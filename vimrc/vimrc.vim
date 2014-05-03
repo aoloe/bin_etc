@@ -42,3 +42,5 @@ com! Spbd :bn |bw#
 :map gf :e <cfile><CR>
 " for me .md is for markdown files
 au BufRead,BufNewFile *.md		set filetype=markdown
+" dont highliht the matching braces
+:NoMatchParen

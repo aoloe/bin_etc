@@ -19,6 +19,7 @@ as of jessie
   - wmii
   - quassel
   - claws-mail
+  - ncftp
 - copy over the ~/.ssh/ directory
 - edit .vimrc to use bin-etc
 - edit the xterm settings according to bin-etc
@@ -32,6 +33,5 @@ as of jessie
     (eventually it seems to be good to have about 10GB of unallocated space)
 - configure wmii in /etc/X11/wmii/wmiirc
   - tweak the status bar
-    echo -n label $(acpi -b |tr -d ','|awk '{if ($3=="Charging") {print "-(= " $4} else {print "-( )· " $4}}') '|' $(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}') '|' $(date "+%a %d %h %H:%M")
-
-
+        echo -n label $(acpi -b |tr -d ','|awk '{if ($3=="Discharging") {print "-[ ]· " $4 " (" $5 ")"} else {print "-(= " $4}}') '|' $(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}') '|' $(date "+%a %d %h %H:%M")
+- copy over the ncftp bookmarks

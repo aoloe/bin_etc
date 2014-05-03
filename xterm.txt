@@ -11,6 +11,6 @@ xterm*visualBell: True
 
 and reload the settings with
 
-$ xrdb -merge ~/.Xdefaults
+$ xrdb -merge ~/.Xresources
 
 to apply the new settings without having to restart X11
