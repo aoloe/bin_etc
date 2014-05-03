@@ -1,0 +1,2 @@
+mplayer dvd:// -dvd-device /dev/cdrom
+mplayer dvdnavi:// -dvd-device /dev/cdrom
