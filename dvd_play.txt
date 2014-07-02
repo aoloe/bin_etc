@@ -1,2 +1,4 @@
 mplayer dvd:// -dvd-device /dev/cdrom
 mplayer dvdnavi:// -dvd-device /dev/cdrom
+
+mplayer dvd:// -alang eng -dvd-device /dev/cdrom
