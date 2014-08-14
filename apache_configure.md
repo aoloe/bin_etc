@@ -4,7 +4,7 @@
 
 /etc/apache2/sites-available/
 
-/etc/apache2/sites-available/mamma
+/etc/apache2/sites-available/mamma.conf
 
 <VirtualHost *:80>
 	ServerName ww.mamma.it
