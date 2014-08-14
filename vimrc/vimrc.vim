@@ -44,3 +44,5 @@ com! Spbd :bn |bw#
 au BufRead,BufNewFile *.md		set filetype=markdown
 " dont highliht the matching braces
 :NoMatchParen
+" load the syntax highlighting for qml files
+au BufRead,BufNewFile *.qml		 source ~/docs/src/bin_etc/vimrc/qml.vim
