@@ -26,3 +26,6 @@ sudo make install
 
 
  grep -rl 'lib/lib' resources/translations/  | xargs sed -i 's/lib\/lib\//lib\//g'
+
+
+cmake -DWANT_MONO=ON -DUSE_QT5=ON -DCMAKE_INSTALL_PREFIX=~/docs/bin/quassel ..
