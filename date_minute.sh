@@ -8,3 +8,4 @@ echo "minus"
     NEWDATE=`date +%T --date "$1 minutes"`;
 fi
 date +%T -s "$NEWDATE";
+hwclock -w
