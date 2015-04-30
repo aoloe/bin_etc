@@ -1,0 +1,20 @@
+127.0.0.1	localhost
+127.0.1.1	digiteis
+
+127.0.1.1	ww.pool.ch
+127.0.1.1	ww.getsimple.org
+127.0.1.1	ww.schloff.ch
+127.0.1.1	ww.contesto.ch
+127.0.1.1	ww.sdn.ch
+127.0.1.1	ww.xox.ch
+127.0.1.1	ww.graphicslab.org
+127.0.1.1	ww.lgm.org
+127.0.1.1	ww.bc-oberurdorf.ch
+127.0.1.1	ww.geraci.ch
+
+# 31.185.27.103 libregraphicsmeeting.org
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters

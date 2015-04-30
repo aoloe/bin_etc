@@ -1,0 +1,143 @@
+NameVirtualHost 127.0.1.2
+<VirtualHost 127.0.1.2>
+  DocumentRoot /home/ale/docs/htdocs/xox/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.3
+<VirtualHost 127.0.1.3>
+  DocumentRoot /home/ale/docs/htdocs/graphicslab/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.4
+<VirtualHost 127.0.1.4>
+  DocumentRoot /home/ale/docs/htdocs/edit/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.5
+<VirtualHost 127.0.1.5>
+  DocumentRoot /home/ale/docs/htdocs/sorencino/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.6
+<VirtualHost 127.0.1.6>
+  DocumentRoot /home/ale/docs/htdocs/reclaimyourtools/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.7
+<VirtualHost 127.0.1.7>
+  DocumentRoot /home/ale/docs/htdocs/ideale/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.8
+<VirtualHost 127.0.1.8>
+  DocumentRoot /home/ale/docs/htdocs/schloff/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Limit Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.9
+<VirtualHost 127.0.1.9>
+  DocumentRoot /home/ale/docs/htdocs/graficalibera/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.10
+<VirtualHost 127.0.1.10>
+  DocumentRoot /home/ale/docs/htdocs/grrrr/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.11
+<VirtualHost 127.0.1.11>
+  DocumentRoot /home/ale/docs/htdocs/allmend/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.12
+<VirtualHost 127.0.1.12>
+  DocumentRoot /home/ale/docs/htdocs/mutracking/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.13
+<VirtualHost 127.0.1.13>
+  DocumentRoot /home/ale/docs/htdocs/impagina/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.14
+<VirtualHost 127.0.1.14>
+  DocumentRoot /home/ale/docs/htdocs/getsimple/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.15
+<VirtualHost 127.0.1.15>
+  DocumentRoot /home/ale/docs/htdocs/lgm/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.16
+<VirtualHost 127.0.1.16>
+  DocumentRoot /home/ale/docs/htdocs/pool/htdocs/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
+
+NameVirtualHost 127.0.1.17
+<VirtualHost 127.0.1.17>
+  DocumentRoot /home/ale/docs/htdocs/schloff_old/
+  <Directory / >
+    Options FollowSymLinks
+    AllowOverride FileInfo Options
+  </Directory>
+</VirtualHost>
