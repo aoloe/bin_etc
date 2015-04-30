@@ -1,4 +1,5 @@
 #!/bin/bash
+exit
 cd ~/src/
 rm -rf Scribus
 svn co svn://scribus.net/trunk/Scribus scribus
