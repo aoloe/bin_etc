@@ -1,10 +1,16 @@
 #!/bin/bash
 exit
-cd ~/src/
-rm -rf Scribus
-svn co svn://scribus.net/trunk/Scribus scribus
-cd Scribus
-export PATH='/usr/local/qt-4.4/bin':$PATH
+
+# scribus
+
+## on linux
+
+get the scribus trunk into the `scribus/` directory
+
+    svn co svn://scribus.net/trunk/Scribus scribus
+
+
+
 #/usr/local/cmake/bin/cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/scribus14 -DLIBPODOFO_DIR=/usr/local/podofo/ -DWANT_CAIRO=1 -DWANT_DEBUG=1
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/scribus15 -DLIBPODOFO_DIR=/usr/local/podofo/ -DWANT_DEBUG=1 -DWANT_NOOSG=1
 mkdir build/
@@ -28,5 +34,12 @@ sudo make install
 
  grep -rl 'lib/lib' resources/translations/  | xargs sed -i 's/lib\/lib\//lib\//g'
 
+### spcecial cases
+
+- if you have a custom install of qt:
+
+      export PATH='/usr/local/qt-4.4/bin':$PATH
+
+# quassel
 
 cmake -DWANT_MONO=ON -DUSE_QT5=ON -DCMAKE_INSTALL_PREFIX=~/docs/bin/quassel ..
