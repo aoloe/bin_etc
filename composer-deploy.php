@@ -66,20 +66,21 @@ $vendor_list = array_diff($vendor_list, array('composer'));
 // debug('vendor_list', $vendor_list);
 
 foreach ($vendor_list as $vendor) {
-    $vendor_path = $path_local_vendor.$vendor.'/';
-    $repository_list = get_directory_list($vendor_path.'*');
+    // $vendor_path = $path_local_vendor.$vendor.'/';
+    $vendor_path = $vendor.'/';
+    $repository_list = get_directory_list($path_local_vendor.$vendor_path.'*');
     // debug('repository_list', $repository_list);
     foreach ($repository_list as $repository) {
         label("upload ".$vendor."/".$repository);
-        $repository_path = $vendor_path.$repository.'/';
+        $path = $vendor_path.$repository.'/';
         // debug('repository_path', $repository_path);
         if (array_key_exists($vendor, $configuration['path-repository-src'])) {
-            $repository_path.= $configuration['path-repository-src'][$vendor];
+            $path .= $configuration['path-repository-src'][$vendor];
         } elseif (array_key_exists($vendor, $configuration['path-vendor-src'])) {
-            $repository_path.= $configuration['path-vendor-src'][$vendor];
+            $path .= $configuration['path-vendor-src'][$vendor];
         }
         // debug('repository_path', $repository_path);
-        ncftp_upload_directory($configuration['ncftp-bookmark'], $path_server_vendor, $repository_path);
+        ncftp_upload_directory($configuration['ncftp-bookmark'], dirname($path_server_vendor.$path), $path_local_vendor.$path);
     }
 }
 
