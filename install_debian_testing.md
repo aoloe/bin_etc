@@ -1,11 +1,11 @@
 as of jessie
 
 - install from netinst for stable
-- edit /etc/apt/list.sources to get jessie
+- edit /etc/apt/list.sources to get testing
 - apt-get update and dist-upgrade
 - install
   - sudo
-  - vim (and remove vim-timy)
+  - vim (and remove vim-tiny)
   - wmii
   - xorg
   - for the laptop: firmware-brcm80211
