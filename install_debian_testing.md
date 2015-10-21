@@ -6,8 +6,13 @@ as of jessie
 - install
   - sudo
   - vim (and remove vim-tiny)
+- configure:
+  - update-alternatives --config editor
+  - visudo
+- install:
   - wmii
   - xorg
+  - aptitude
   - for the laptop: firmware-brcm80211
   - wicd
   - openssh-server
