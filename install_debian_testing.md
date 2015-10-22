@@ -12,9 +12,9 @@ as of jessie
 - install:
   - xorg
 
-        sudo apt-get install --no-install-recommends xserver-xorg-core \
-        xserver-xorg-input-all xserver-xorg-video-fbdev \
-        xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
+          sudo apt-get install --no-install-recommends xserver-xorg-core \
+          xserver-xorg-input-all xserver-xorg-video-fbdev \
+          xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
 
   - wmii
   - xorg
