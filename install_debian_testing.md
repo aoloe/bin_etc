@@ -10,6 +10,12 @@ as of jessie
   - update-alternatives --config editor
   - visudo
 - install:
+  - org  
+    ~~~~
+    sudo apt-get install --no-install-recommends xserver-xorg-core \
+    xserver-xorg-input-all xserver-xorg-video-fbdev \
+    xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
+    ~~~
   - wmii
   - xorg
   - aptitude
