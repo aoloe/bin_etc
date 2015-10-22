@@ -12,10 +12,11 @@ as of jessie
 - install:
   - xorg
 
-          sudo apt-get install --no-install-recommends xserver-xorg-core \
+          sudo apt-get install xserver-xorg-core \
           xserver-xorg-input-all xserver-xorg-video-fbdev \
           xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
     <http://unix.stackexchange.com/questions/128860/minimal-x-org-xserver-installation-on-debian-wheezy>
+  - xinit
   - wmii
   - xorg
   - aptitude
