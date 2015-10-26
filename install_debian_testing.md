@@ -57,6 +57,7 @@ as of jessie
   - `mount /dev/sr0 /media/cdrom`
   - `/media/cdrom` and `sh ./VBoxLinuxAdditions.run`
   - reboot
+  - add `contrib` to `sources.list` and install `virtualbox-guest-x11`.
 
 ## tools
 
