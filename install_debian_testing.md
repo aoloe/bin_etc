@@ -19,6 +19,7 @@ as of jessie
     if <startx> still does not work, try to install `xserver-xorg-video-all`
   - xinit
   - wmii
+    - set ´~/.xinitrc` to `exec wmii`
   - xorg
   - aptitude
   - for the laptop: firmware-brcm80211
