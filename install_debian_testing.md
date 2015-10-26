@@ -52,11 +52,13 @@ as of jessie
 ## virtualbox
 
 - add the guest addtions:
-  - <https://forums.virtualbox.org/viewtopic.php?t=15679>
-  - `apt-get install dkms build-essential linux-headers-amd64`
-  - `mount /dev/sr0 /media/cdrom`
-  - `/media/cdrom` and `sh ./VBoxLinuxAdditions.run`
-  - reboot
+  - add `contrib` to `sources.list` and install `virtualbox-guest-x11`.
+  - or
+    - <https://forums.virtualbox.org/viewtopic.php?t=15679>
+    - `apt-get install dkms build-essential linux-headers-amd64`
+    - `mount /dev/sr0 /media/cdrom`
+    - `/media/cdrom` and `sh ./VBoxLinuxAdditions.run`
+    - reboot
   - add `contrib` to `sources.list` and install `virtualbox-guest-x11`.
 
 ## tools
