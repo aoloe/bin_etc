@@ -57,3 +57,7 @@ as of jessie
   - `mount /dev/sr0 /media/cdrom`
   - `/media/cdrom` and `sh ./VBoxLinuxAdditions.run`
   - reboot
+
+## tools
+
+- `pastebinit` for uploading to <http://paste.debian.net> from the terminal
