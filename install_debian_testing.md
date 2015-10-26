@@ -15,7 +15,8 @@ as of jessie
           sudo apt-get install xserver-xorg-core \
           xserver-xorg-input-all xserver-xorg-video-fbdev \
           xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
-    <http://unix.stackexchange.com/questions/128860/minimal-x-org-xserver-installation-on-debian-wheezy>
+    <http://unix.stackexchange.com/questions/128860/minimal-x-org-xserver-installation-on-debian-wheezy>  
+    if <startx> still does not work, try to install `xserver-xorg-video-all`
   - xinit
   - wmii
   - xorg
@@ -47,3 +48,12 @@ as of jessie
   - tweak the status bar
         echo -n label $(acpi -b |tr -d ','|awk '{if ($3=="Discharging") {print "-[ ]· " $4 " (" $5 ")"} else {print "-[|= " $4}}') '|' $(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}') '|' $(date "+%a %d %h %H:%M")
 - copy over the ncftp bookmarks
+
+## virtualbox
+
+- add the guest addtions:
+  - <https://forums.virtualbox.org/viewtopic.php?t=15679>
+  - `apt-get install dkms build-essential linux-headers-amd64`
+  - `mount /dev/sr0 /media/cdrom`
+  - `/media/cdrom` and `sh ./VBoxLinuxAdditions.run`
+  - reboot
