@@ -53,8 +53,8 @@ as of jessie
 ## virtualbox
 
 - add `xserver-xorg-legacy` to get x11 to work correctly.
-- add the guest addtions:
-  - <stroke>add `contrib` to `sources.list` and install `virtualbox-guest-x11`.</stroke>
+- add the guest addtions: (no solution found for debian testing, yet)
+  - <strike>add `contrib` to `sources.list` and install `virtualbox-guest-x11`.</strike>
   - or
     - <https://forums.virtualbox.org/viewtopic.php?t=15679>
     - `apt-get install dkms build-essential linux-headers-amd64`
