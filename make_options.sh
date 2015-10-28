@@ -19,7 +19,7 @@ cd build/
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/scribus15 -DWANT_DEBUG=1 -DWANT_NOOSG=1 -DWANT_PRIVATE_CAIRO=1 -DWANT_SCRIPTER2=1
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus -DWANT_DEBUG=1 -DWANT_NOOSG=1 -DWANT_SCRIPTER2=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus_git -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus-github -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus_oif -DWANT_DEBUG=1 -DWANT_NOOSG=1 ..
 svn co svn://scribus.net/branches/Version14x/Scribus scribus14
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus14 -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
