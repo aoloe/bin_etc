@@ -41,3 +41,5 @@ com! Spbd :bn |bw#
 :autocmd VimEnter */.sylpheed/tmp/* source ~/docs/src/bin_etc/vimrc/sylpheed.vim
 " load the syntax highlighting for qml files
 au BufRead,BufNewFile *.qml		 source ~/docs/src/bin_etc/vimrc/qml.vim
+" do not highlight the matching parenthesis
+let loaded_matchparen = 1
