@@ -1,13 +1,27 @@
 as of jessie
 
 - install from netinst for stable
-- edit /etc/apt/list.sources to get jessie
+- edit /etc/apt/list.sources to get testing
 - apt-get update and dist-upgrade
 - install
   - sudo
-  - vim (and remove vim-timy)
-  - wmii
+  - vim (and remove vim-tiny)
+- configure:
+  - update-alternatives --config editor
+  - visudo
+- install:
   - xorg
+
+          sudo apt-get install xserver-xorg-core \
+          xserver-xorg-input-all xserver-xorg-video-fbdev \
+          xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
+    <http://unix.stackexchange.com/questions/128860/minimal-x-org-xserver-installation-on-debian-wheezy>  
+    if <startx> still does not work, try to install `xserver-xorg-video-all`
+  - xinit
+  - wmii
+    - set ´~/.xinitrc` to `exec wmii`
+  - xorg
+  - aptitude
   - for the laptop: firmware-brcm80211
   - wicd
   - openssh-server
@@ -35,3 +49,20 @@ as of jessie
   - tweak the status bar
         echo -n label $(acpi -b |tr -d ','|awk '{if ($3=="Discharging") {print "-[ ]· " $4 " (" $5 ")"} else {print "-[|= " $4}}') '|' $(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}') '|' $(date "+%a %d %h %H:%M")
 - copy over the ncftp bookmarks
+
+## virtualbox
+
+- add `xserver-xorg-legacy` to get x11 to work correctly.
+- add the guest addtions: (no solution found for debian testing, yet)
+  - <strike>add `contrib` to `sources.list` and install `virtualbox-guest-x11`.</strike>
+  - or
+    - <https://forums.virtualbox.org/viewtopic.php?t=15679>
+    - `apt-get install dkms build-essential linux-headers-amd64`
+    - `mount /dev/sr0 /media/cdrom`
+    - `/media/cdrom` and `sh ./VBoxLinuxAdditions.run`
+    - reboot
+  - add `contrib` to `sources.list` and install `virtualbox-guest-x11`.
+
+## tools
+
+- `pastebinit` for uploading to <http://paste.debian.net> from the terminal

@@ -1,10 +1,16 @@
 #!/bin/bash
 exit
-cd ~/src/
-rm -rf Scribus
-svn co svn://scribus.net/trunk/Scribus scribus
-cd Scribus
-export PATH='/usr/local/qt-4.4/bin':$PATH
+
+# scribus
+
+## on linux
+
+get the scribus trunk into the `scribus/` directory
+
+    svn co svn://scribus.net/trunk/Scribus scribus
+
+
+
 #/usr/local/cmake/bin/cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/scribus14 -DLIBPODOFO_DIR=/usr/local/podofo/ -DWANT_CAIRO=1 -DWANT_DEBUG=1
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/scribus15 -DLIBPODOFO_DIR=/usr/local/podofo/ -DWANT_DEBUG=1 -DWANT_NOOSG=1
 mkdir build/
@@ -13,7 +19,7 @@ cd build/
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/scribus15 -DWANT_DEBUG=1 -DWANT_NOOSG=1 -DWANT_PRIVATE_CAIRO=1 -DWANT_SCRIPTER2=1
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus_scripter -DWANT_DEBUG=1 -DWANT_NOOSG=1 -DWANT_SCRIPTER2=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus_git -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus-github -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus_oif -DWANT_DEBUG=1 -DWANT_NOOSG=1 ..
 svn co svn://scribus.net/branches/Version14x/Scribus scribus14
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/ale/docs/bin/scribus14 -DWANT_DEBUG=1 -DWANT_GUI_LANG="en_GB;de;fr;it;en" ..
@@ -28,5 +34,12 @@ sudo make install
 
  grep -rl 'lib/lib' resources/translations/  | xargs sed -i 's/lib\/lib\//lib\//g'
 
+### spcecial cases
+
+- if you have a custom install of qt:
+
+      export PATH='/usr/local/qt-4.4/bin':$PATH
+
+# quassel
 
 cmake -DWANT_MONO=ON -DUSE_QT5=ON -DCMAKE_INSTALL_PREFIX=~/docs/bin/quassel ..
