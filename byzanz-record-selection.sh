@@ -3,13 +3,14 @@
 
 # Delay before starting
 DELAY=10
+DURATION=10
 
 # Duration and output file
 if [ $# -gt 0 ]; then
     D="--duration=$@"
 else
-    echo Default recording duration 10s to /tmp/recorded.gif
-    D="--duration=10 /tmp/recorded.gif"
+    echo Default recording duration $DURATION to /tmp/recorded.gif
+    D="--duration=$DURATION /tmp/recorded.gif"
 fi
 
 # xrectsel from https://github.com/lolilolicon/xrectsel
@@ -22,3 +23,4 @@ for (( i=$DELAY; i>0; --i )) ; do
 done
 echo "byzanz-record --verbose --delay=0 " ${ARGUMENTS} $D
 byzanz-record --verbose --delay=0 ${ARGUMENTS} $D
+# byzanz-record --verbose --delay=0  --x=1 --y=35 --width=545 --height=257 --duration=25 /tmp/recorded.gif
