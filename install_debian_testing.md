@@ -1,5 +1,7 @@
 as of jessie
 
+(for stretch, it seems to be possible to directly install from the testing iso)
+
 - install from netinst for stable
 - edit /etc/apt/list.sources to get testing
 - apt-get update and dist-upgrade
@@ -9,10 +11,12 @@ as of jessie
 - configure:
   - update-alternatives --config editor
   - visudo
+- create `/mnt/usb_a` and add it in `/etc/fstab`
+  `/dev/sdb1       /mnt/usb_a    vfat    defaults,user,rw,noauto  0       0`
 - install:
   - xorg
 
-          sudo apt-get install xserver-xorg-core \
+          sudo apt-get install xorg xserver-xorg-core \
           xserver-xorg-input-all xserver-xorg-video-fbdev \
           xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
     <http://unix.stackexchange.com/questions/128860/minimal-x-org-xserver-installation-on-debian-wheezy>  
@@ -22,14 +26,14 @@ as of jessie
     - set ´~/.xinitrc` to `exec wmii`
   - xorg
   - aptitude
-  - for the laptop: firmware-brcm80211
+  - for the digiteis laptop: firmware-brcm80211
   - wicd
   - openssh-server
   - git
   - apache
   - php5
   - mysql-client and mysql-server
-  - chromium
+  - chromium + download firex development from the web (needs libgtk3 and libdbus-glib-1.2)
   - wmii
   - quassel
   - claws-mail
@@ -49,6 +53,63 @@ as of jessie
   - tweak the status bar
         echo -n label $(acpi -b |tr -d ','|awk '{if ($3=="Discharging") {print "-[ ]· " $4 " (" $5 ")"} else {print "-[|= " $4}}') '|' $(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}') '|' $(date "+%a %d %h %H:%M")
 - copy over the ncftp bookmarks
+
+## dwm
+
+to get dwm and compile it:
+
+- git (and configure it)
+- build-essential
+- libx11-dev
+- libxft-dev
+
+
+set `.xinitrc` to 
+
+    exec dwm
+
+and start with `startx`
+
+## suckless configs and patches
+
+### dwm
+
+applied:
+
+- windows key: instead of alt
+
+to be applied:
+
+- statuscolor
+- hide vacant tags
+- gapless grid layout
+- maximize
+- "movestack" or "push"
+- nametag
+- resizecorners
+- save floats
+- stackmfact
+- switchcol
+- systray
+
+maybe:
+
+- cfacts
+- "fancybar" or rather "pango"
+- float border color
+- focus adjacent tag (or next prev tag / shiftview)
+- gap
+- "nmaster" patch (patch it to only have stacked layout from wmii?) or "tab" (but not for monocle)
+
+### st
+
+- get it from git
+- in `config.h` switch `defaultfg` and `defaultbg`
+- apply the patches:
+  - hidecursor
+  - visualbell
+  - (scrollback does not apply and one can always pipe to less...)
+- https://wiki.archlinux.org/index.php/St
 
 ## virtualbox
 
