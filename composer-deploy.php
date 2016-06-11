@@ -4,6 +4,10 @@
 # composer-deploy.php
 # composer-deploy.json must be defined in the directory where the script is run
 
+/**
+ * TODO:
+ * - use composer.json to know which packages are meant to be uploaded (exclude the -dev ones)
+
 
 function debug($label, $value) {
     echo("--> $label:\n".print_r($value, 1)."\n");
@@ -59,6 +63,8 @@ ncftp_empty_directory($configuration['ncftp-bookmark'], $path_server_vendor);
 $vendor_list = get_directory_list($path_local_vendor.'*');
 // debug('vendor_list', $vendor_list);
 
+label("upload autoload");
+ncftp_upload_directory($configuration['ncftp-bookmark'], $path_server_vendor, $path_local_vendor.'autoload.php');
 label("upload composer");
 // composer does not have repositories in vendor, just upload the vendor
 ncftp_upload_directory($configuration['ncftp-bookmark'], $path_server_vendor, $path_local_vendor.'composer/');
