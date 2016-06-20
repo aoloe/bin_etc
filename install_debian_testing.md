@@ -35,7 +35,11 @@ as of jessie
   - mysql-client and mysql-server
   - chromium + download firex development from the web (needs libgtk3 and libdbus-glib-1.2)
   - wmii
-  - quassel
+  - hexchat (quassel)
+    needs (can i do them as plugins?):
+    - textarea for typing text
+    - formatting + tooltip on date / nick column
+    - auto add # in front of the channel name
   - claws-mail
   - ncftp
 - copy over the ~/.ssh/ directory
@@ -111,6 +115,11 @@ maybe:
   - (scrollback does not apply and one can always pipe to less...)
 - https://wiki.archlinux.org/index.php/St
 
+## further packages
+
+- `pm-tools for power management
+- `tlp` for advanced power management (not yet installed)
+
 ## virtualbox
 
 - add `xserver-xorg-legacy` to get x11 to work correctly.
@@ -123,6 +132,28 @@ maybe:
     - `/media/cdrom` and `sh ./VBoxLinuxAdditions.run`
     - reboot
   - add `contrib` to `sources.list` and install `virtualbox-guest-x11`.
+
+## hidpi
+
+normally, it has 96 dpi, scaling at 125% gives 120.  so create `~/.Xresources` as
+
+~~~
+Xft.dpi: 120
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+~~~
+
+and load it at the beginning of `~/.xinitrc`
+
+~~~
+xrdb -merge ~/.Xresources
+~~~
+
+install `lxappearance` and choose `DejaVu Sans ExtraLight 10` as the default font.
 
 ## tools
 
