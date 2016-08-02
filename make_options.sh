@@ -36,9 +36,22 @@ sudo make install
 
 ### spcecial cases
 
+mrb's cmake:
+
+    $ cmake -DQT_PREFIX="/Users/craig/Qt/5.6/clang_64" \
+        -DWANT_HUNSPELL=1 -DWANT_NOHEADERINSTALL=1 -DWANT_NOEXAMPLES=1 \
+       -DWANT_GRAPHICSMAGICK=1 -DCMAKE_OSX_ARCHITECTURES="x86_64" -DBUILD_OSX_BUNDLE=1 \
+       -DWANT_UNIVERSAL_BUNDLE=0 -DWANT_DEBUG=1 \
+       -DWANT_SVNVERSION=1 \
+       -DWANT_NOOSG=1 \
+       -DWANT_GUI_LANG="en_GB;de;fr" \
+       -DCMAKE_INSTALL_PREFIX:PATH=/Users/craig/Applications/Scribus.app/ ../trunk/Scribus/
+
 - if you have a custom install of qt:
 
       export PATH='/usr/local/qt-4.4/bin':$PATH
+  
+  and / or `-DQT_PREFIX="/Users/craig/Qt/5.6/clang_64"`
 
 # quassel
 

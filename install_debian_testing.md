@@ -105,6 +105,13 @@ maybe:
 - gap
 - "nmaster" patch (patch it to only have stacked layout from wmii?) or "tab" (but not for monocle)
 
+some patches sources:
+
+- http://brittonkerin.com/sdwm
+- http://github.com/jceb/dwm-patches
+- http://github.com/jceb/dwm-clean-patches
+- 
+
 ### st
 
 - get it from git
