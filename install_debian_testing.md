@@ -158,3 +158,15 @@ install `lxappearance` and choose `DejaVu Sans ExtraLight 10` as the default fon
 ## tools
 
 - `pastebinit` for uploading to <http://paste.debian.net> from the terminal
+
+## bluetooth
+
+- install the packages according to <https://wiki.debian.org/BluetoothUser/a2dp>
+- install bluez-tools
+- `bluetoothctl scan` to get he list of available devices
+- `pair 0<tab>`
+- `connect 0<tab>`
+- `pavucontrol` lets control the volume for each device (alsamixer does nothing)
+- <https://wiki.archlinux.org/index.php/Dell_XPS_13_(2016)#Wireless_headset:_strange_bluetooth_behavior> says that a proprietary driver might be needed... (but it should be for the broadcom wifi card)
+- `pacmd list-sinks` lists the available output devices
+- `pacmd set-default-sink 3` activates a specific output device. (you might have to restart the program)
