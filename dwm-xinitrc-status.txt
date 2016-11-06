@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# cf. http://dwm.suckless.org/dowmstatus/
+
+# start ssh-agent, which we will need for ssh-add
+eval `/usr/bin/ssh-agent`
+
+# 1280x720 = 720p X220
+# hash fswebcam && fswebcam -q --no-banner -r 1280x720 ~/private/login-photos/$(date +%Y-%m-%dT%H).jpg &
+
+# xrdb -merge $HOME/.Xresources
+
+status() {
+	LOCALTIME=$(date "+%a %d %h %H:%M")
+	# TEMP="$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))C"
+
+	# BAT="Bat. $(acpi -b | awk '{ print $4 " " $5 }' | tr -d ',')"
+	BAT=$(acpi -b |tr -d ','|awk '{if ($3=="Discharging") {print "-[ ]· " $4 " (" $5 ")"} else {print "-[|= " $4}}')
+
+	LOAD=$(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}')
+
+	xsetroot -name "$BAT | $LOAD | $LOCALTIME"
+}
+
+while true
+do
+	status
+	sleep 20s
+done &
+
+exec dwm

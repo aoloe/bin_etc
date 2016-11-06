@@ -32,14 +32,14 @@ au BufRead,BufNewFile *.md set filetype=markdown
 "close the buffer but keep the split layout
 com! Spbd :bn |bw#
 " autoload the settings in php.vim for all php files
-:autocmd FileType php source ~/docs/src/bin_etc/vimrc/php.vim
+:autocmd FileType php source ~/src/bin_etc/vimrc/php.vim
 " autoload the settings in latex.vim for all latex files
-:autocmd FileType tex source ~/docs/src/bin_etc/vimrc/latex.vim
+:autocmd FileType tex source ~/src/bin_etc/vimrc/latex.vim
 " autoload the settings in latex.vim for all latex files
-:autocmd FileType cpp source ~/docs/src/bin_etc/vimrc/cpp.vim
+:autocmd FileType cpp source ~/src/bin_etc/vimrc/cpp.vim
 " autoload for sylpheed
-:autocmd VimEnter */.sylpheed/tmp/* source ~/docs/src/bin_etc/vimrc/sylpheed.vim
+:autocmd VimEnter */.sylpheed/tmp/* source ~/src/bin_etc/vimrc/sylpheed.vim
 " load the syntax highlighting for qml files
-au BufRead,BufNewFile *.qml		 source ~/docs/src/bin_etc/vimrc/qml.vim
+au BufRead,BufNewFile *.qml		 source ~/src/bin_etc/vimrc/qml.vim
 " do not highlight the matching parenthesis
 let loaded_matchparen = 1
