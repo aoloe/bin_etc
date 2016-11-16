@@ -1,0 +1,1 @@
+gs -dPDFSETTINGS=/prepress -dSAFER -dCompatibilityLevel=1.5 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sstdout=%stderr -dGrayImageResolution=600 -dMonoImageResolution=1200 -dColorImageResolution=300 -sOutputFile=out.pdf -c .setpdfwrite -f $1
