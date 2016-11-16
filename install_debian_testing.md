@@ -42,6 +42,7 @@ as of jessie
     - auto add # in front of the channel name
   - claws-mail
   - ncftp
+  - zeal (offline documentation)
 - copy over the ~/.ssh/ directory
 - edit .vimrc to use bin-etc
 - edit the xterm settings according to bin-etc
@@ -57,6 +58,11 @@ as of jessie
   - tweak the status bar
         echo -n label $(acpi -b |tr -d ','|awk '{if ($3=="Discharging") {print "-[ ]· " $4 " (" $5 ")"} else {print "-[|= " $4}}') '|' $(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}') '|' $(date "+%a %d %h %H:%M")
 - copy over the ncftp bookmarks
+- for claws-mail, make sure that 
+
+      mainwin_maximised=1
+      mainwin_fullscreen=0
+      next_on_delete=1
 
 ## dwm
 
@@ -119,6 +125,8 @@ some patches sources:
 - apply the patches:
   - hidecursor
   - visualbell
+  - solarize
+    - https://github.com/altercation/vim-colors-solarized
   - (scrollback does not apply and one can always pipe to less...)
 - https://wiki.archlinux.org/index.php/St
 
