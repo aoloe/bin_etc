@@ -4,7 +4,11 @@
 
 if [ -t 0 ] && terminal=1; then
 
-    /usr/bin/zenity $@
+    /usr/bin/mupdf $@
+
+elif [ "$#" != 0 ]; then
+
+    /usr/bin/mupdf $@
 
 else
 
