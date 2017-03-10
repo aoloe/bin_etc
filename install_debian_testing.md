@@ -1,5 +1,7 @@
 as of jessie
 
+(for stretch, it seems to be possible to directly install from the testing iso)
+
 - install from netinst for stable
 - edit /etc/apt/list.sources to get testing
 - apt-get update and dist-upgrade
@@ -9,10 +11,12 @@ as of jessie
 - configure:
   - update-alternatives --config editor
   - visudo
+- create `/mnt/usb_a` and add it in `/etc/fstab`
+  `/dev/sdb1       /mnt/usb_a    vfat    defaults,user,rw,noauto  0       0`
 - install:
   - xorg
 
-          sudo apt-get install xserver-xorg-core \
+          sudo apt-get install xorg xserver-xorg-core \
           xserver-xorg-input-all xserver-xorg-video-fbdev \
           xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
     <http://unix.stackexchange.com/questions/128860/minimal-x-org-xserver-installation-on-debian-wheezy>  
@@ -22,18 +26,23 @@ as of jessie
     - set ´~/.xinitrc` to `exec wmii`
   - xorg
   - aptitude
-  - for the laptop: firmware-brcm80211
+  - for the digiteis laptop: firmware-brcm80211
   - wicd
   - openssh-server
   - git
   - apache
   - php5
   - mysql-client and mysql-server
-  - chromium
+  - chromium + download firex development from the web (needs libgtk3 and libdbus-glib-1.2)
   - wmii
-  - quassel
+  - hexchat (quassel)
+    needs (can i do them as plugins?):
+    - textarea for typing text
+    - formatting + tooltip on date / nick column
+    - auto add # in front of the channel name
   - claws-mail
   - ncftp
+  - zeal (offline documentation)
 - copy over the ~/.ssh/ directory
 - edit .vimrc to use bin-etc
 - edit the xterm settings according to bin-etc
@@ -49,6 +58,82 @@ as of jessie
   - tweak the status bar
         echo -n label $(acpi -b |tr -d ','|awk '{if ($3=="Discharging") {print "-[ ]· " $4 " (" $5 ")"} else {print "-[|= " $4}}') '|' $(uptime | sed 's/.*://; s/, / /g' | awk '{print $1}') '|' $(date "+%a %d %h %H:%M")
 - copy over the ncftp bookmarks
+- for claws-mail, make sure that 
+
+      mainwin_maximised=1
+      mainwin_fullscreen=0
+      next_on_delete=1
+
+## dwm
+
+to get dwm and compile it:
+
+- git (and configure it)
+- build-essential
+- libx11-dev
+- libxft-dev
+
+
+set `.xinitrc` to 
+
+    exec dwm
+
+and start with `startx`
+
+## suckless configs and patches
+
+### dwm
+
+applied:
+
+- windows key: instead of alt
+
+to be applied:
+
+- statuscolor
+- hide vacant tags
+- gapless grid layout
+- maximize
+- "movestack" or "push"
+- nametag
+- resizecorners
+- save floats
+- stackmfact
+- switchcol
+- systray
+
+maybe:
+
+- cfacts
+- "fancybar" or rather "pango"
+- float border color
+- focus adjacent tag (or next prev tag / shiftview)
+- gap
+- "nmaster" patch (patch it to only have stacked layout from wmii?) or "tab" (but not for monocle)
+
+some patches sources:
+
+- http://brittonkerin.com/sdwm
+- http://github.com/jceb/dwm-patches
+- http://github.com/jceb/dwm-clean-patches
+- 
+
+### st
+
+- get it from git
+- in `config.h` switch `defaultfg` and `defaultbg`
+- apply the patches:
+  - hidecursor
+  - visualbell
+  - solarize
+    - https://github.com/altercation/vim-colors-solarized
+  - (scrollback does not apply and one can always pipe to less...)
+- https://wiki.archlinux.org/index.php/St
+
+## further packages
+
+- `pm-tools for power management
+- `tlp` for advanced power management (not yet installed)
 
 ## virtualbox
 
@@ -63,6 +148,40 @@ as of jessie
     - reboot
   - add `contrib` to `sources.list` and install `virtualbox-guest-x11`.
 
+## hidpi
+
+normally, it has 96 dpi, scaling at 125% gives 120.  so create `~/.Xresources` as
+
+~~~
+Xft.dpi: 120
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+~~~
+
+and load it at the beginning of `~/.xinitrc`
+
+~~~
+xrdb -merge ~/.Xresources
+~~~
+
+install `lxappearance` and choose `DejaVu Sans ExtraLight 10` as the default font.
+
 ## tools
 
 - `pastebinit` for uploading to <http://paste.debian.net> from the terminal
+
+## bluetooth
+
+- install the packages according to <https://wiki.debian.org/BluetoothUser/a2dp>
+- install bluez-tools
+- `bluetoothctl scan` to get he list of available devices
+- `pair 0<tab>`
+- `connect 0<tab>`
+- `pavucontrol` lets control the volume for each device (alsamixer does nothing)
+- <https://wiki.archlinux.org/index.php/Dell_XPS_13_(2016)#Wireless_headset:_strange_bluetooth_behavior> says that a proprietary driver might be needed... (but it should be for the broadcom wifi card)
+- `pacmd list-sinks` lists the available output devices
+- `pacmd set-default-sink 3` activates a specific output device. (you might have to restart the program)
