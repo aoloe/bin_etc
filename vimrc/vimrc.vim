@@ -43,6 +43,11 @@ com! Spbd :bn |bw#
 au BufRead,BufNewFile *.qml		 source ~/src/bin_etc/vimrc/qml.vim
 " do not highlight the matching parenthesis
 let loaded_matchparen = 1
-" for the solarized color scheme
-set background=dark
-colorscheme solarized
+try
+    colorscheme solarized
+    " for the solarized color scheme on the laptop with st
+    set background=dark
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
+
