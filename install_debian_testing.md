@@ -78,6 +78,11 @@ set `.xinitrc` to
 
     exec dwm
 
+
+dwm is a non-reparenting window manager and java application tend to misbehave (menus, window size). add to  in `.xinitrc` the the following environment variable:
+
+    export _JAVA_AWT_WM_NONREPARENTING=1
+
 and start with `startx`
 
 ## suckless configs and patches

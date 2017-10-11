@@ -58,3 +58,7 @@ mrb's cmake:
 # quassel
 
 cmake -DWANT_MONO=ON -DUSE_QT5=ON -DCMAKE_INSTALL_PREFIX=~/bin/quassel ..
+
+# lua love
+
+./configure --prefix=/home/ale/bin/love
