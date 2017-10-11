@@ -51,3 +51,13 @@ catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
 
+" " load w0rpale
+" let &runtimepath.=',~/.vim/bundle/ale'
+" 
+" "only lint on save
+" let g:ale_lint_on_save = 1
+" let g:ale_lint_on_text_changed = 0
+" let g:ale_lint_on_enter = 0
+" 
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
