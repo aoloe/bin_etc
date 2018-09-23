@@ -3,25 +3,30 @@ import os
 import eyed3
 import argparse
 
+# TODO: mv the image loading to its own script
+
 parser = argparse.ArgumentParser(description='Create a mv.sh file from the tags in all mp3 files in the current directory.')
 parser.add_argument('-a', dest='artist', action='store',
-   default=None,
-   help='artist tag')
+    default=None,
+    help='artist tag')
 parser.add_argument('-b', dest='album', action='store',
-   default=None,
-   help='album tag')
+    default=None,
+    help='album tag')
 parser.add_argument('-i', dest='image', action='store',
-   default=None,
-   help='cover image')
+    default=None,
+    help='cover image')
+parser.add_argument('files', default=None,
+    nargs='+',
+    help='the file to be set')
 args = parser.parse_args()
 
 def normalize(text) :
     text = text.lower()
-    for k, v in {' ':'_', '\'': '', '.':'', '!':'', '?':'', '…':''}.items():
+    for k, v in {' ':'_', '/':'_', '\'': '_', '__':'_', '__':'_', '.':'', '!':'', '?':'', ',':'', '…':'', '_.':'.', 'à':'a','é':'e', 'è':'e', 'ê':'e', 'ä':'ae', 'ö':'oe', 'ü':'ue', 'ç':'c', 'ñ':'n'}.items():
         text = str.replace(text, k, v)
     return text
 
-files = [f for f in os.listdir('.') if os.path.isfile(f)]
+files = args.files
 files.sort()
 track_count = len(files)
 moves = []
@@ -32,7 +37,7 @@ for f in files:
 
         if not hasattr(file, 'tag'):
             print('{} has not tags'.format(f))
-            os.exit()
+            sys.exit()
         if not moves:
             if args.image:
                 # TODO: support png images?

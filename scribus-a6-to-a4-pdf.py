@@ -46,12 +46,21 @@ if scribus.haveDoc():
 
     pdf = scribus.PDFfile()
     pdf.file = filename + "-reordered.pdf"
-    if (scribus.pageCount() == 2) :
+    if (scribus.pageCount() == 1) :
+        pdf.pages = [1,1,1,1]
+    elif (scribus.pageCount() == 2) :
         pdf.pages = [1,1,1,1,2,2,2,2]
-    if (scribus.pageCount() == 4) :
+    elif (scribus.pageCount() == 4) :
         pdf.pages = [4,1,4,1,2,3,2,3]
-    if (scribus.pageCount() == 8) :
+    elif (scribus.pageCount() == 8) :
         pdf.pages = [8,1,6,3,2,7,4,5]
+    elif (scribus.pageCount() == 12) :
+        pdf.pages = [12, 1, 2, 11, 10, 3, 4, 9, 8, 5, 6, 7]
+    elif (scribus.pageCount() == 16) :
+        # pdf.pages = [16, 1, 2, 15, 14, 3, 4, 13, 12, 5, 6, 11, 10, 7, 8, 9] # <- probably wrong
+        pdf.pages = [16, 1, 14 , 3, 2, 15, 4, 13, 12, 5, 10, 7, 6, 11, 8, 9] # <- first join top/down , then staple 1/2
+    else:
+        print('{} are not yet supported'.format(scribus.pageCount()))
     pdf.save()
 
     os.system("pdfnup --nup 2x2 --frame false --no-landscape " + filename + "-reordered.pdf --outfile " + filename.replace("a6", "a4") + ".pdf")

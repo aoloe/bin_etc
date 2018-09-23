@@ -18,6 +18,7 @@ args = parser.parse_args()
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 files.sort()
 track_count = len(files)
+print(track_count)
 first = True
 for f in files:
     fstring, fextension = os.path.splitext(f)

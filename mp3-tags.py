@@ -2,6 +2,7 @@
 import os
 import eyed3
 import argparse
+import datetime
 
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 files.sort()
@@ -25,5 +26,8 @@ for f in files:
         track = file.tag.track_num[0] if hasattr(file.tag, 'track_num') else 0
         title = file.tag.title if hasattr(file.tag, 'title') else '---'
 
-        filename = 'a: {} / b: {} / n: {:02d} / t: {}'.format(artist, album, track, title)
+        duration = file.info.time_secs if hasattr(file, 'info') and hasattr(file.info, 'time_secs') else 0
+
+        filename = 'a: {} / b: {} / n: {:02d} / t: {} ({})'.format(artist, album, track, title, datetime.timedelta(seconds=duration))
+
         print(filename)
