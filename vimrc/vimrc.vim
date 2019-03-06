@@ -35,12 +35,17 @@ com! Spbd :bn |bw#
 :autocmd FileType php source ~/src/bin_etc/vimrc/php.vim
 " autoload the settings in latex.vim for all latex files
 :autocmd FileType tex source ~/src/bin_etc/vimrc/latex.vim
-" autoload the settings in latex.vim for all latex files
+
+" autoload for cpp, with special rules for scribus
 :autocmd FileType cpp source ~/src/bin_etc/vimrc/cpp.vim
+:autocmd BufRead,BufNewFile */scribus*.cpp source ~/src/bin_etc/vimrc/scribus.vim
+:autocmd BufRead,BufNewFile */scribus*.h source ~/src/bin_etc/vimrc/scribus.vim
+
 " autoload for sylpheed
 :autocmd VimEnter */.sylpheed/tmp/* source ~/src/bin_etc/vimrc/sylpheed.vim
 " load the syntax highlighting for qml files
 au BufRead,BufNewFile *.qml		 source ~/src/bin_etc/vimrc/qml.vim
+
 " do not highlight the matching parenthesis
 let loaded_matchparen = 1
 try
@@ -61,3 +66,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
 \   'cpp': [],
 \}
+
+setglobal complete-=i " do not use included file for autocomplete
+" ":se cbt" shows the current sources to be scanned
