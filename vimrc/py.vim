@@ -4,4 +4,3 @@
 :se ai
 :se si
 :se listchars=eol:$,tab:>-
-:se list

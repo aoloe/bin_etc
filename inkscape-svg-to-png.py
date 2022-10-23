@@ -23,5 +23,6 @@ for f in args.file:
     # print(f.name)
     # print(pngfile)
 
+    call(['inkscape', '--verb=FitCanvasToDrawing', '--verb=FileSave', '--verb=FileQuit', f.name])
     call(['inkscape', '-z', '--export-dpi=300', f.name, '-e', pngfile])
 

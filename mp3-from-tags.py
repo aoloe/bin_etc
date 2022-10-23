@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import os
+import sys
 import eyed3
 import argparse
 
@@ -21,8 +22,8 @@ parser.add_argument('files', default=None,
 args = parser.parse_args()
 
 def normalize(text) :
-    text = text.lower()
-    for k, v in {' ':'_', '/':'_', '\'': '_', '__':'_', '__':'_', '.':'', '!':'', '?':'', ',':'', '…':'', '_.':'.', 'à':'a','é':'e', 'è':'e', 'ê':'e', 'ä':'ae', 'ö':'oe', 'ü':'ue', 'ç':'c', 'ñ':'n'}.items():
+    text = text.lower().strip()
+    for k, v in {' ':'_', '/':'_', '\'': '_', '__':'_', '.':'', '!':'', '?':'', '¿': '', ',':'', ':':'', '…':'', '_.':'.', '%': '_', '&': 'and', 'à':'a', 'ä':'ae','é':'e', 'è':'e', 'ê':'e', 'ï':'i', 'ö':'oe', 'ô':'o', 'ü':'ue', 'ú': 'u', 'ù': 'u', 'ç':'c', 'ñ':'n'}.items():
         text = str.replace(text, k, v)
     return text
 

@@ -1,14 +1,14 @@
-!#/bin/bash
+#!/bin/bash
 
 # run mupdf as terminal program if launched from the terminal or first launch the open file dialog otherwise
 
 if [ -t 0 ] && terminal=1; then
 
-    /usr/bin/mupdf $@
+    /usr/bin/mupdf "$@"
 
 elif [ "$#" != 0 ]; then
 
-    /usr/bin/mupdf $@
+    /usr/bin/mupdf "$@"
 
 else
 

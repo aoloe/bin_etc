@@ -51,8 +51,9 @@ for f in files:
             # TODO: look for the first jpg image?
             try:
                 with open("cover.jpg", "rb") as img_fp:
-                    print(f)
-                    file.tag.images.set(eyed3.id3.frames.ImageFrame.FRONT_COVER, img_fp.read(),  "image/jpeg", "")
+                    pass
+                    # print(f)
+                    # file.tag.images.set(eyed3.id3.frames.ImageFrame.FRONT_COVER, img_fp.read(),  "image/jpeg", "")
             except FileNotFoundError:
                 print("could not find the cover.jpg file")
             first = False

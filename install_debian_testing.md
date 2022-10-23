@@ -6,6 +6,7 @@ as of jessie
 - edit /etc/apt/list.sources to get testing
 - apt-get update and dist-upgrade
 - install
+  - aptitude
   - sudo
   - vim (and remove vim-tiny)
 - configure:
@@ -21,20 +22,24 @@ as of jessie
           xserver-xorg-video-(yourcard, can be intel, nouveau, or ati)
     <http://unix.stackexchange.com/questions/128860/minimal-x-org-xserver-installation-on-debian-wheezy>  
     if <startx> still does not work, try to install `xserver-xorg-video-all`
-  - xinit
-  - wmii
-    - set ´~/.xinitrc` to `exec wmii`
-  - xorg
-  - aptitude
-  - for the digiteis laptop: firmware-brcm80211
-  - wicd
-  - openssh-server
+  - (xinit: should come in with xorg)
   - git
+    - copy over the ~/.ssh/ directory
+  - (wmii: see dwm below)
+    - set ´~/.xinitrc` to `exec wmii`
+  - dwm, st, dmenu (from git)
+    - see the notes below for dwm
+    - see the notes below for st
+    - set the prefi in config.mk for dmenu for installing it in the home
+  - ninja-build
+  - for the digiteis laptop: firmware-brcm80211
+  - (wicd: use the interfaces file directly)
+  - openssh-server
+  - firefox developer edition
   - apache
-  - php5
+  - php7
   - mysql-client and mysql-server
   - chromium + download firex development from the web (needs libgtk3 and libdbus-glib-1.2)
-  - wmii
   - hexchat (quassel)
     needs (can i do them as plugins?):
     - textarea for typing text
@@ -43,9 +48,8 @@ as of jessie
   - claws-mail
   - ncftp
   - zeal (offline documentation)
-- copy over the ~/.ssh/ directory
 - edit .vimrc to use bin-etc
-- edit the xterm settings according to bin-etc
+- (edit the xterm settings according to bin-etc)
 - configure the ssd using by editing the fstab and reducing the swap:
   - add to /etc/sysctl.conf
         # Sharply reduce swap inclination
@@ -85,6 +89,7 @@ dwm is a non-reparenting window manager and java application tend to misbehave (
 
 and start with `startx`
 
+
 ## suckless configs and patches
 
 ### dwm
@@ -92,6 +97,10 @@ and start with `startx`
 applied:
 
 - windows key: instead of alt
+
+further changes:
+
+- disable mod-0 (with many windows it crashes X11)
 
 to be applied:
 
@@ -127,11 +136,13 @@ some patches sources:
 
 - get it from git
 - in `config.h` switch `defaultfg` and `defaultbg`
+- set PREFIX in config.mk and then ln -s in /usr/local/bin
 - apply the patches:
   - hidecursor
   - visualbell
   - solarize
     - https://github.com/altercation/vim-colors-solarized
+    - (does not correctly apply... changes must be copied in config.h manually)
   - (scrollback does not apply and one can always pipe to less...)
 - https://wiki.archlinux.org/index.php/St
 
@@ -139,6 +150,15 @@ some patches sources:
 
 - `pm-tools for power management
 - `tlp` for advanced power management (not yet installed)
+
+## opengl and qml
+
+<https://bugs.launchpad.net/ubuntu/+source/mesa/+bug/1876219> says:
+
+```
+Adding this line to ~/.profile helps for me as workaround.
+"export MESA_LOADER_DRIVER_OVERRIDE=i965"
+```
 
 ## virtualbox
 

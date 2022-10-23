@@ -45,20 +45,31 @@ com! Spbd :bn |bw#
 :autocmd VimEnter */.sylpheed/tmp/* source ~/src/bin_etc/vimrc/sylpheed.vim
 " load the syntax highlighting for qml files
 au BufRead,BufNewFile *.qml		 source ~/src/bin_etc/vimrc/qml.vim
+" load the syntax highlighting for web files
+au BufRead,BufNewFile *.html		 source ~/src/bin_etc/vimrc/html.vim
+au BufRead,BufNewFile *.css		 source ~/src/bin_etc/vimrc/html.vim
+au BufRead,BufNewFile *.js		 source ~/src/bin_etc/vimrc/html.vim
+au BufRead,BufNewFile *.dart		 source ~/src/bin_etc/vimrc/dart.vim
 
 " do not highlight the matching parenthesis
 let loaded_matchparen = 1
-try
-    colorscheme solarized
-    " for the solarized color scheme on the laptop with st
-    set background=dark
-catch /^Vim\%((\a\+)\)\=:E185/
-    " deal with it
-endtry
+
+
+" set background=dark " dark | light "                       
+" colorscheme solarized 
 
 "only lint on save
 :let g:ale_lint_on_text_changed = 'never'
 :let g:ale_lint_on_enter = 0
+
+"nerw is a moder file browser in vim
+"Vexplore opens it in a new vertical buffer
+" https://shapeshed.com/vim-netrw/
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -66,6 +77,9 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
 \   'cpp': [],
 \}
+
+" fix the colors for the ctrl-p popup
+:highlight Pmenu ctermbg=gray guibg=gray
 
 setglobal complete-=i " do not use included file for autocomplete
 " ":se cbt" shows the current sources to be scanned
