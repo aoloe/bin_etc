@@ -6,6 +6,7 @@ Install -- or update to -- the latest version of VSCode
 
 import requests
 import shutil
+from pathlib import Path
 import os
 
 def download_file(url, target_file, target_dir):
