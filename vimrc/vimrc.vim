@@ -55,8 +55,8 @@ au BufRead,BufNewFile *.dart		 source ~/src/bin_etc/vimrc/dart.vim
 let loaded_matchparen = 1
 
 
-" set background=dark " dark | light "                       
-" colorscheme solarized 
+set background=dark " dark | light "
+colorscheme solarized
 
 "only lint on save
 :let g:ale_lint_on_text_changed = 'never'
