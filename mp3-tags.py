@@ -12,7 +12,7 @@ for f in files:
     if fextension == '.mp3':
         file = eyed3.load(f)
 
-        print(f)
+        # print(f)
 
         if not hasattr(file, 'tag'):
             print('{} has not tags'.format(f))
@@ -23,14 +23,14 @@ for f in files:
 
         artist = file.tag.artist if hasattr(file.tag, 'artist') else '---'
         album = file.tag.album if hasattr(file.tag, 'album') else '---'
-        print(hasattr(file.tag, 'track_num'))
-        print('track_num', file.tag.track_num)
+        # print(hasattr(file.tag, 'track_num'))
+        # print('track_num', file.tag.track_num)
         track = file.tag.track_num[0] if hasattr(file.tag, 'track_num') else 0
         title = file.tag.title if hasattr(file.tag, 'title') else '---'
 
         duration = file.info.time_secs if hasattr(file, 'info') and hasattr(file.info, 'time_secs') else 0
 
-        print(artist, album, track, title, datetime)
+        # print(artist, album, track, title, datetime)
         filename = 'a: {} / b: {} / n: {:02d} / t: {} ({})'.format(artist, album, track, title, datetime.timedelta(seconds=duration))
 
         print(filename)

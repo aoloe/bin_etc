@@ -1,4 +1,4 @@
-#!/usr/bin/python3.6
+#!/usr/bin/env python3
 import argparse
 
 import urllib.request, json
@@ -45,6 +45,8 @@ data_snippet = data_html[a:b]
 # print('---'+data_snippet+'---')
 data_json = json.loads(data_snippet)
 # print(data_json)
+# put_file_data('out.txt', data_snippet)
+
 ids = []
 for item in data_json:
     ids.append(str(item['id']))
@@ -53,11 +55,11 @@ for item in data_json:
 # sys.exit()
 
 # pattern_re = re.compile(r'-(\d+)\.mp3')
-pattern_re = re.compile(r'(^.+)-(\d+)\.mp3')
+pattern_re = re.compile(r'(^.+?)[- ]\[?(\d+)\]?\.mp3')
 
 moves = []
 for filename in [f for f in os.listdir('.') if os.path.isfile(f)] :
-    # print(filename)
+    print(filename)
     match = pattern_re.match(filename)
     if match :
         target = '{:02d}_-_{}.mp3'.format(ids.index(match[2]) + 1, match[1])

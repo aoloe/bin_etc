@@ -35,6 +35,8 @@ com! Spbd :bn |bw#
 :autocmd FileType php source ~/src/bin_etc/vimrc/php.vim
 " autoload the settings in latex.vim for all latex files
 :autocmd FileType tex source ~/src/bin_etc/vimrc/latex.vim
+" autoload the settings in py.vim for all python files
+:autocmd FileType py source ~/src/bin_etc/vimrc/py.vim
 
 " autoload for cpp, with special rules for scribus
 :autocmd FileType cpp source ~/src/bin_etc/vimrc/cpp.vim
@@ -75,7 +77,8 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
-\   'cpp': [],
+\  'cpp': [],
+\ 'python': ['pylint'],
 \}
 
 " fix the colors for the ctrl-p popup

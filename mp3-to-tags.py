@@ -18,14 +18,14 @@ args = parser.parse_args()
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 files.sort()
 track_count = len(files)
-print(track_count)
+# print(track_count)
 first = True
 for f in files:
     fstring, fextension = os.path.splitext(f)
     if fextension == '.mp3':
         values = fstring.split(args.separator)
         values = [v.replace('_', ' ') for v in values]
-        print(values)
+        # print('values', values, args.separator)
         file = eyed3.load(f)
         file.initTag()
         
@@ -43,6 +43,7 @@ for f in files:
         else:
             album = args.album
         file.tag.album = album
+        # print(values, i)
         file.tag.track_num = (values[i], track_count)
         i += 1
         file.tag.title = values[i]
